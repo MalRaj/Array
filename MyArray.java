@@ -12,4 +12,11 @@ public class MyArray {
 	public MyArray(int size) {
 		elements = new int[size];
 	}
+	
+	/*
+	 * Accessor methods
+	 */
+	public int getSize() {
+		return elements.length;
+	}
 }
