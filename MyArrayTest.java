@@ -44,5 +44,28 @@ public class MyArrayTest {
 				Arrays.toString(expectedArray_6), 
 				Arrays.toString(myArray_6.getElements()));
 	}
+	
+	@Test
+	public void testRotation() {
+		int[] originalArray = {1, 2, 3, 4, 5};
+		int[] expectedLeftRotationArray = {3, 4, 5, 1, 2};
+		int[] expectedRightRotationArray = {5, 1, 2, 3, 4};
+		
+		MyArray myArray = new MyArray(originalArray);
+		myArray.rotation(-2);
+		assertEquals("Failed: left rotation by 2", 
+				Arrays.toString(expectedLeftRotationArray), 
+				Arrays.toString(myArray.getElements()));
+		
+		myArray.rotation(2);
+		assertEquals("Failed: right rotation by 2", 
+				Arrays.toString(originalArray),
+				Arrays.toString(myArray.getElements()));
+		
+		myArray.rotation(1);
+		assertEquals("Failed: right rotation by 1", 
+				Arrays.toString(expectedRightRotationArray),
+				Arrays.toString(myArray.getElements()));
+	}
 
 }

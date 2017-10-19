@@ -67,6 +67,28 @@ public class MyArray {
 	}
 	
 	/*
+	 * positive modulo
+	 */
+	public int positiveModulos(int a, int b) {
+		return (((a % b) + b) % b);
+	}
+	
+	/*
+	 * Rotate the Array in left direction using temp array
+	 * Time complexity O(size)
+	 * Auxiliary space O(numElements)
+	 * @param numElements: the number of elements will be shifted, 
+	 * 					   negative for left rotation,
+	 * 					   positive for right rotation 
+	 */
+	public void rotation(int numElements) {
+	    int[] temArray = this.elements.clone();
+	    for (int i = 0; i < this.getSize(); i++) {
+	    	this.elements[positiveModulos(i + numElements, this.getSize())] = temArray[i];
+	    }
+	}
+	
+	/*
 	 * Equal method
 	 * @param array   : the array is compared with the elements of MyArray instance
 	 * @return boolean: true if all the element of array and MyArray instance are equal
