@@ -68,4 +68,35 @@ public class MyArrayTest {
 				Arrays.toString(myArray.getElements()));
 	}
 
+
+	/*
+	 * Finding the GCD of 2 numbers
+	 * @param a: the first number
+	 * @param b: the second number
+	 * @return : the GCD of 2 above numbers 
+	 */
+	public static int gcd(int a, int b) {
+		if (0 == b) {
+			return a;
+		}
+		else {
+			return gcd(b, a % b);
+		}
+	}
+	
+	@Test
+	public void testGcd () {
+		int expectedResult = 2;
+		assertEquals("Failed: Wrong gcd for 2 and 4",
+				expectedResult, gcd(2, 4));
+		
+		expectedResult = 5;
+		assertEquals("Failed: Wrong gcd for 5 and 0",
+				expectedResult, gcd(5, 0));
+		
+		expectedResult = 7;
+		assertEquals("Failed: Wrong gcd for 0 and 7",
+				expectedResult, gcd(0, 7));
+	}
+
 }
